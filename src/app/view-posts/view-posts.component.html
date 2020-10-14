@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="text-center">
+        <h3>Post Details</h3>
+    </div>
+    <hr/>
+    <div class="float-right">
+        <a class="text-success" (click)="addButton()">Add Post</a>
+    </div>
+    <hr/>
+    <div>
+        <div class="table-responsive-md">
+            <table class="table">
+                <caption>Post Details</caption>
+            
+                <thead class="thead-dark text-center">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr  class="table-info text-center" *ngFor="let post of postService.post; index as i;">
+                    <th scope="row">{{i+1}}</th>
+                    <td><a (click)="setPostId(post.id)" [routerLink]="['/comments']"  >{{post.title}}</a></td>
+                    <td>{{post.author}}</td>
+                    <td class="float-right text-danger" (click)="deletePost(post.id)"><i class="fas fa-minus-square"></i> </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>             
+    </div>
+</div>

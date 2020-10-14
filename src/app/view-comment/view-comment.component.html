@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="text-center">
+        <h3>{{name}} Comments</h3>
+    </div>
+    <div class="float-right">
+        <button type="button" class="btn btn-info float-right" (click)="returnHome()">Go Back</button>
+    </div>
+    <div class="input-group mb-3">
+
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Add Comment</span>
+        </div>
+        <input #comment type="text" class="form-control" placeholder="Enter your Comment" aria-label="comment" aria-describedby="basic-addon1">
+        <button class="btn btn-primary" (click)="addCommentPostId(comment.value,postService.getPostId())">Add</button>
+    </div>
+    <div *ngIf="postService.comments.length !== 0;else active_todo">
+        <ul class="list-group list-group-flush" >
+            <li class="list-group-item"  *ngFor="let comment of postService.comments"> {{comment.body}}
+                <span class="float-right text-danger" (click)="deleteComment(comment.id)">
+                    <i class="fas fa-trash"></i> 
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <ng-template #active_todo>
+            <h5 class="text-info">No Comment Found for the Post</h5>
+    </ng-template>
+</div>

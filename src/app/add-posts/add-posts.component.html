@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="text-center">
+      <h3>Add Post</h3>
+    </div>
+      <div>
+          <div>
+            <a class="text-info float-right" (click)="returnHome()">Go Back</a>
+          </div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Title</span>
+              </div>
+              <input type="text"  #title  class="form-control" placeholder="Enter a Post Title" aria-label="name" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Author</span>
+              </div>
+              <input type="text"  #author  class="form-control" placeholder="Enter a Post Author" aria-label="email" aria-describedby="basic-addon1">
+          </div>
+          
+          <div class=" float-right">
+              <button type="button float-right" class="btn btn-success" (click)="addPost(title.value,author.value)">Add Post</button>
+          </div>
+      </div>
+  
+  </div>
+  
